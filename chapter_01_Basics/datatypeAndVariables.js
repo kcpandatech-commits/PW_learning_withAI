@@ -4,9 +4,7 @@
  * ============================================
  */
 
-// ========================================
 // 1. PRIMITIVE DATA TYPES
-// ========================================
 /*
 Primitives are immutable data types stored directly in memory (stack).
 There are 7 primitive data types in JavaScript.
@@ -78,9 +76,7 @@ console.log(9007199254740992n === 9007199254740993n); // false
 console.log(9007199254740992 === 9007199254740993); // true (Number limit)
 // BigInt: numbers beyond Number.MAX_SAFE_INTEGER
 
-// ========================================
 // 2. VARIABLE DECLARATION: var vs let vs const
-// ========================================
 
 // 2.1 var - OLD WAY (avoid in modern JS)
 console.log("\n2.1 var keyword:");
@@ -145,9 +141,7 @@ arr.push(4); // OK: modifying array
 console.log(arr); // [1, 2, 3, 4]
 // arr = []; // Error: reassignment not allowed
 
-// ========================================
 // 3. TEMPORAL DEAD ZONE (TDZ)
-// ========================================
 console.log("\n3. Temporal Dead Zone:");
 // console.log(tempVar); // ReferenceError: Cannot access 'tempVar' before initialization
 // Zone from start of block to initialization is "TDZ"
@@ -158,9 +152,7 @@ console.log(tempVar); // 10
 console.log(varTemporal); // undefined (hoisted, not in TDZ)
 var varTemporal = 5;
 
-// ========================================
 // 4. TYPE COERCION
-// ========================================
 
 // 4.1 Implicit Type Coercion
 console.log("\n4.1 Implicit Type Coercion:");
@@ -253,9 +245,7 @@ const user = null;
 console.log(user || "Anonymous"); // "Anonymous" (logical OR)
 console.log(user && "logged in"); // null (logical AND)
 
-// ========================================
 // 5. NaN (Special Case)
-// ========================================
 console.log("\n5. NaN (Not a Number):");
 console.log(NaN === NaN); // false (NaN is not equal to itself!)
 console.log(isNaN(NaN)); // true
@@ -263,9 +253,7 @@ console.log(isNaN("hello")); // true (coerces "hello" to NaN)
 console.log(Number.isNaN(NaN)); // true (no coercion)
 console.log(Number.isNaN("hello")); // false (strict check)
 
-// ========================================
 // 6. HOISTING SUMMARY
-// ========================================
 console.log("\n6. Hoisting Summary:");
 
 // var: hoisted with undefined initialization
@@ -287,9 +275,7 @@ function hoistedFunction() {
 // console.log(hoistedExpression()); // ReferenceError
 const hoistedExpression = () => "Not hoisted";
 
-// ========================================
 // 7. OBJECT & ARRAY (Reference Types)
-// ========================================
 console.log("\n7. Reference Types:");
 
 // Objects are reference types (stored on heap)
@@ -308,9 +294,7 @@ let obj5 = Object.assign({}, obj1); // shallow copy
 console.log(obj4.name); // "Bob"
 console.log(obj4 === obj1); // false
 
-// ========================================
 // 8. TYPEOF OPERATOR
-// ========================================
 console.log("\n8. typeof Operator:");
 console.log(typeof 42); // "number"
 console.log(typeof "hello"); // "string"
@@ -323,9 +307,7 @@ console.log(typeof [1, 2, 3]); // "object" (arrays are objects)
 console.log(typeof null); // "object" (quirk!)
 console.log(typeof (() => {})); // "function"
 
-// ========================================
 // 9. STRICT EQUALITY vs LOOSE EQUALITY
-// ========================================
 console.log("\n9. Equality Comparison:");
 console.log(0 == false); // true (coercion)
 console.log(0 === false); // false (strict)
@@ -342,9 +324,7 @@ if (best === 5) {
   console.log("Prefer === always!");
 }
 
-// ========================================
 // 10. COMMON INTERVIEW SCENARIOS
-// ========================================
 console.log("\n10. Interview Scenarios:");
 
 // Scenario 1: What's the output?
