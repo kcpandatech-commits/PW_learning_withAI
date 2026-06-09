@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Cheat Sheet</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: 34px;
+      color: #111827;
+    }
+
+    h2 {
+      margin: 34px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #cbd5e1;
+      font-size: 24px;
+      color: #334155;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #d8dee9;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #243447;
+      color: #ffffff;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    tr:hover td {
+      background: #eef6ff;
+    }
+
+    code {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 5px;
+      background: #eef2f7;
+      color: #9f1239;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .result {
+      color: #047857;
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      main {
+        padding: 20px 12px 40px;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Array Cheat Sheet</h1>
+
+    <h2>Create & Copy</h2>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Example</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>Array literal</code></td><td><code>[1, 2, 3]</code></td><td class="result">[1, 2, 3]</td></tr>
+        <tr><td><code>Array.of()</code></td><td><code>Array.of(5)</code></td><td class="result">[5]</td></tr>
+        <tr><td><code>Array.from()</code></td><td><code>Array.from("QA")</code></td><td class="result">["Q", "A"]</td></tr>
+        <tr><td><code>Spread copy</code></td><td><code>[...[1, 2, 3]]</code></td><td class="result">[1, 2, 3]</td></tr>
+        <tr><td><code>slice()</code></td><td><code>[1, 2, 3].slice()</code></td><td class="result">[1, 2, 3]</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Add & Remove</h2>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Example</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>push()</code></td><td><code>arr.push(3)</code></td><td class="result">adds at end</td></tr>
+        <tr><td><code>pop()</code></td><td><code>arr.pop()</code></td><td class="result">removes from end</td></tr>
+        <tr><td><code>unshift()</code></td><td><code>arr.unshift(1)</code></td><td class="result">adds at start</td></tr>
+        <tr><td><code>shift()</code></td><td><code>arr.shift()</code></td><td class="result">removes from start</td></tr>
+        <tr><td><code>splice()</code></td><td><code>[1, 2, 3].splice(1, 1)</code></td><td class="result">removes/updates original array</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Search & Check</h2>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Example</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>includes()</code></td><td><code>[1, 2, 3].includes(2)</code></td><td class="result">true</td></tr>
+        <tr><td><code>indexOf()</code></td><td><code>["a", "b"].indexOf("b")</code></td><td class="result">1</td></tr>
+        <tr><td><code>find()</code></td><td><code>[5, 12, 8].find(n =&gt; n &gt; 10)</code></td><td class="result">12</td></tr>
+        <tr><td><code>findIndex()</code></td><td><code>[5, 12, 8].findIndex(n =&gt; n &gt; 10)</code></td><td class="result">1</td></tr>
+        <tr><td><code>some()</code></td><td><code>[1, 2, 3].some(n =&gt; n &gt; 2)</code></td><td class="result">true</td></tr>
+        <tr><td><code>every()</code></td><td><code>[1, 2, 3].every(n =&gt; n &gt; 0)</code></td><td class="result">true</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Transform & Filter</h2>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Example</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>map()</code></td><td><code>[1, 2, 3].map(n =&gt; n * 2)</code></td><td class="result">[2, 4, 6]</td></tr>
+        <tr><td><code>filter()</code></td><td><code>[1, 2, 3, 4].filter(n =&gt; n % 2 === 0)</code></td><td class="result">[2, 4]</td></tr>
+        <tr><td><code>reduce()</code></td><td><code>[1, 2, 3].reduce((t, n) =&gt; t + n, 0)</code></td><td class="result">6</td></tr>
+        <tr><td><code>flat()</code></td><td><code>[1, [2, 3]].flat()</code></td><td class="result">[1, 2, 3]</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Sort & Combine</h2>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Example</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>sort()</code></td><td><code>["b", "a"].sort()</code></td><td class="result">["a", "b"]</td></tr>
+        <tr><td><code>numeric sort</code></td><td><code>[10, 2, 5].sort((a, b) =&gt; a - b)</code></td><td class="result">[2, 5, 10]</td></tr>
+        <tr><td><code>reverse()</code></td><td><code>[1, 2, 3].reverse()</code></td><td class="result">[3, 2, 1]</td></tr>
+        <tr><td><code>join()</code></td><td><code>["smoke", "sanity"].join(", ")</code></td><td class="result">"smoke, sanity"</td></tr>
+        <tr><td><code>concat()</code></td><td><code>[1, 2].concat([3, 4])</code></td><td class="result">[1, 2, 3, 4]</td></tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
+

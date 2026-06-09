@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Cheat Sheet</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f4;
+      color: #1f2937;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: 34px;
+      color: #111827;
+    }
+
+    h2 {
+      margin: 34px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #d4d4d4;
+      font-size: 24px;
+      color: #374151;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid #d7d7d7;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(31, 41, 55, 0.08);
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #3f3f46;
+      color: #ffffff;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    tr:hover td {
+      background: #fff7ed;
+    }
+
+    code {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 5px;
+      background: #eeeeee;
+      color: #9f1239;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .result {
+      color: #047857;
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      main {
+        padding: 20px 12px 40px;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Object Cheat Sheet</h1>
+
+    <h2>Create & Access</h2>
+    <table>
+      <thead>
+        <tr><th>Concept</th><th>Example</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Object literal</td><td><code>{ name: "Aman", role: "QA" }</code></td><td class="result">object</td></tr>
+        <tr><td>Dot access</td><td><code>user.name</code></td><td class="result">"Aman"</td></tr>
+        <tr><td>Bracket access</td><td><code>user["role"]</code></td><td class="result">"QA"</td></tr>
+        <tr><td>Dynamic key</td><td><code>user[fieldName]</code></td><td class="result">value of key</td></tr>
+        <tr><td>Optional chaining</td><td><code>response.data?.user?.email</code></td><td class="result">value or undefined</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Add, Update & Delete</h2>
+    <table>
+      <thead>
+        <tr><th>Task</th><th>Example</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Add property</td><td><code>user.city = "Pune"</code></td><td class="result">adds city</td></tr>
+        <tr><td>Update property</td><td><code>user.role = "Senior QA"</code></td><td class="result">updates role</td></tr>
+        <tr><td>Delete property</td><td><code>delete user.city</code></td><td class="result">removes city</td></tr>
+        <tr><td>Check property</td><td><code>"role" in user</code></td><td class="result">true/false</td></tr>
+        <tr><td>Own property</td><td><code>Object.hasOwn(user, "role")</code></td><td class="result">true/false</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Object Methods</h2>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Example</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>Object.keys()</code></td><td><code>Object.keys(user)</code></td><td class="result">array of keys</td></tr>
+        <tr><td><code>Object.values()</code></td><td><code>Object.values(user)</code></td><td class="result">array of values</td></tr>
+        <tr><td><code>Object.entries()</code></td><td><code>Object.entries(user)</code></td><td class="result">key-value pairs</td></tr>
+        <tr><td><code>Object.fromEntries()</code></td><td><code>Object.fromEntries(entries)</code></td><td class="result">object</td></tr>
+        <tr><td><code>Object.freeze()</code></td><td><code>Object.freeze(config)</code></td><td class="result">prevents changes</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Destructuring & Copy</h2>
+    <table>
+      <thead>
+        <tr><th>Task</th><th>Example</th><th>Key Point</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Basic destructuring</td><td><code>let { name, role } = user</code></td><td class="result">creates variables</td></tr>
+        <tr><td>Rename</td><td><code>let { name: userName } = user</code></td><td class="result">new variable name</td></tr>
+        <tr><td>Default value</td><td><code>let { city = "NA" } = user</code></td><td class="result">fallback value</td></tr>
+        <tr><td>Shallow copy</td><td><code>let copy = { ...user }</code></td><td class="result">top-level copy</td></tr>
+        <tr><td>Merge</td><td><code>{ ...defaults, ...local }</code></td><td class="result">later values win</td></tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
